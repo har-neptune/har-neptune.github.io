@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Muhtria Harlika — Software Engineer</title>
+<meta name="description" content="Portfolio of Muhtria Harlika — mobile and full-stack engineer. Flutter, Python, Next.js."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:     #0C0C10;
+  --surface:#13131A;
+  --border: #23232E;
+  --ink:    #E8E8F0;
+  --muted:  #6B6B7A;
+  --acc:    #7C6FFA; /* indigo-violet — deliberate: not green/red default */
+  --acc2:   #FA6F9A; /* rose accent for badges */
+  --mono:   "Fragment Mono", monospace;
+  --sans:   "Instrument Sans", system-ui, sans-serif;
+  --maxw:   1020px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ── layout ── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ── nav ── */
+nav{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);background:rgba(12,12,16,.85);backdrop-filter:blur(10px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--mono);font-size:15px;color:var(--acc)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:13.5px;color:var(--muted);transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* ── hero ── */
+.hero{padding:96px 0 72px}
+.hero-tag{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(42px,7vw,76px);font-weight:700;line-height:1;letter-spacing:-.025em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:46ch;margin-bottom:36px;line-height:1.5}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid var(--border);transition:all .18s;cursor:pointer}
+.btn.primary{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn.primary:hover{background:#6b5ef0}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--surface);border-color:var(--acc)}
+
+/* ── stack strip ── */
+.stack-strip{padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.stack-inner{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.stack-item{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
+.stack-item span{color:var(--acc);margin-right:6px}
+
+/* ── section ── */
+section{padding:72px 0;border-top:1px solid var(--border)}
+.sec-label{font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.sec-title{font-size:clamp(26px,3.5vw,36px);font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
+.sec-sub{color:var(--muted);font-size:16px;max-width:55ch;margin-bottom:40px}
+
+/* ── projects ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.proj-grid{grid-template-columns:1fr}}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.proj-card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.proj-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.proj-badge{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:3px 8px;border-radius:999px;border:1px solid;white-space:nowrap}
+.badge-mobile{color:var(--acc);border-color:rgba(124,111,250,.35)}
+.badge-fullstack{color:var(--acc2);border-color:rgba(250,111,154,.35)}
+.badge-ml{color:#6FE4FA;border-color:rgba(111,228,250,.3)}
+.badge-web{color:#87FA6F;border-color:rgba(135,250,111,.3)}
+.proj-year{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.proj-card h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.proj-card p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:16px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--muted);background:rgba(255,255,255,.04);border-radius:5px;padding:3px 8px;border:1px solid var(--border)}
+.proj-link{font-family:var(--mono);font-size:12.5px;color:var(--acc);display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
+.proj-link:hover{gap:8px}
+.proj-card.featured{grid-column:span 2}
+@media(max-width:700px){.proj-card.featured{grid-column:span 1}}
+.proj-card.featured p{max-width:62ch}
+
+/* ── skills ── */
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:600px){.skill-grid{grid-template-columns:1fr}}
+.skill-cell{background:var(--surface);padding:20px 22px}
+.skill-cell .k{font-family:var(--mono);font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.skill-cell .v{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── timeline (exp) ── */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--border)}
+.tl-item:first-child{border-top:none}
+.tl-date{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.tl-body h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.tl-body .org{font-family:var(--mono);font-size:12px;color:var(--acc);margin-bottom:8px}
+.tl-body p{font-size:14px;color:var(--muted);line-height:1.55}
+@media(max-width:560px){.tl-item{grid-template-columns:1fr}.tl-date{padding-top:0}}
+
+/* ── contact ── */
+.contact-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px;text-align:center}
+.contact-box h2{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.contact-box p{color:var(--muted);margin-bottom:28px;font-size:16px}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.contact-box .mono-line{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:24px}
+
+/* ── footer ── */
+footer{padding:32px 0;border-top:1px solid var(--border);text-align:center}
+footer p{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease, transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none}
+  .btn,.proj-card,.proj-card::before,.proj-link{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <span class="logo">mh.dev</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;padding-top:96px">
+    <div class="wrap reveal">
+      <p class="hero-tag">Mobile · Full-Stack · Python</p>
+      <h1>I build apps<br>people <em>actually</em> use.</h1>
+      <p class="hero-sub">Muhtria Harlika — final-year CS student at Politeknik Negeri Jakarta. I ship end-to-end: Flutter mobile apps, Python back-ends, and web platforms. GPA 3.89/4.00.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn ghost" href="https://github.com/har-neptune" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn ghost" href="mailto:muhtria.har@gmail.com">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK STRIP -->
+  <div class="stack-strip reveal">
+    <div class="wrap stack-inner">
+      <div class="stack-item"><span>//</span>Flutter & Dart</div>
+      <div class="stack-item"><span>//</span>Python</div>
+      <div class="stack-item"><span>//</span>Next.js</div>
+      <div class="stack-item"><span>//</span>Laravel / PHP</div>
+      <div class="stack-item"><span>//</span>MySQL</div>
+      <div class="stack-item"><span>//</span>GitHub Actions</div>
+      <div class="stack-item"><span>//</span>REST APIs</div>
+      <div class="stack-item"><span>//</span>scikit-learn</div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="sec-label reveal">Work</p>
+      <h2 class="sec-title reveal">Selected projects</h2>
+      <p class="sec-sub reveal">Real products built end-to-end, not toy examples.</p>
+
+      <div class="proj-grid">
+
+        <!-- FEATURED: gerobakGo -->
+        <article class="proj-card featured reveal">
+          <div class="proj-top">
+            <div>
+              <span class="proj-badge badge-mobile">Mobile · Flutter</span>
+            </div>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3>gerobakGo — Street Vendor Finder</h3>
+          <p>A cross-platform mobile app that solves a real discovery problem: customers can find nearby street food vendors (PKL) on a live map, browse their menus, and see their current location — without requiring any online payment infrastructure.</p>
+          <p style="margin-top:8px;font-size:14px;color:var(--muted)">Full contributor: UI/widget implementation, state management, location services, and data layer. Shipped as a team build on a shared codebase.</p>
+          <div class="proj-tags">
+            <span class="tag">Flutter</span><span class="tag">Dart</span>
+            <span class="tag">Location Services</span><span class="tag">Maps</span>
+            <span class="tag">State Management</span>
+          </div>
+          <a class="proj-link" href="https://github.com/MedG12/GerobakGo" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <!-- ASPEC -->
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <span class="proj-badge badge-fullstack">Full-Stack · Python</span>
+            <span class="proj-year">2026</span>
+          </div>
+          <h3>ASPEC — Asset Management Platform</h3>
+          <p>Real asset management system for an industry partner. REST API in Python, MySQL database, Next.js dashboard, plus a prediction engine (Random Survival Forest) and RAG-based automated report generation.</p>
+          <div class="proj-tags">
+            <span class="tag">Next.js</span><span class="tag">Python</span>
+            <span class="tag">MySQL</span><span class="tag">REST API</span><span class="tag">RAG</span>
+          </div>
+          <a class="proj-link" href="https://github.com/veergio/ASPEC" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <!-- MLOps -->
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <span class="proj-badge badge-ml">MLOps · Python</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3>ML System with CI/CD Pipeline</h3>
+          <p>Automated ML pipeline where every push triggers data preprocessing, model training, and experiment logging via MLflow — implemented with GitHub Actions CI from scratch.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">MLflow</span>
+            <span class="tag">GitHub Actions</span><span class="tag">CI/CD</span>
+          </div>
+          <a class="proj-link" href="https://github.com/har-neptune/Eksperimen_SML_Muhtria-Harlika" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <!-- SPK -->
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <span class="proj-badge badge-web">Web · Laravel</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3>SPK — Laptop Recommendation System</h3>
+          <p>Full-stack web app implementing the SWARA multi-criteria decision method to rank and recommend laptops from user-weighted criteria. Built solo in Laravel with a MySQL backend.</p>
+          <div class="proj-tags">
+            <span class="tag">Laravel</span><span class="tag">PHP</span>
+            <span class="tag">MySQL</span><span class="tag">SWARA</span>
+          </div>
+          <a class="proj-link" href="https://github.com/har-neptune/spk-swara" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <!-- FAPS -->
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <span class="proj-badge badge-mobile">IoT · Embedded</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3>FAPS — Smart Parking Detection</h3>
+          <p>IoT system that detects available parking spots in real time using ultrasonic sensors on ESP32 and streams data to a live dashboard. Awarded 2nd Best Final Project at CSC PNJ.</p>
+          <div class="proj-tags">
+            <span class="tag">ESP32</span><span class="tag">C++</span>
+            <span class="tag">IoT</span><span class="tag">Real-time Dashboard</span>
+          </div>
+        </article>
+
+        <!-- Pet Shop -->
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <span class="proj-badge badge-web">Web · CRUD</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3>Pet Shop Management System</h3>
+          <p>Team-built management system covering inventory, sales transactions, and customer records. Focused on clean database schema design and reliable CRUD operations.</p>
+          <div class="proj-tags">
+            <span class="tag">Database Design</span><span class="tag">CRUD</span>
+          </div>
+          <a class="proj-link" href="https://github.com/dnsyr/pemay" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="sec-label reveal">Stack</p>
+      <h2 class="sec-title reveal">What I work with</h2>
+      <div class="skill-grid reveal">
+        <div class="skill-cell">
+          <div class="k">Mobile</div>
+          <div class="v">Flutter, Dart — full-stack cross-platform apps: UI, state management, API integration, location services</div>
+        </div>
+        <div class="skill-cell">
+          <div class="k">Back-end & DB</div>
+          <div class="v">Python, PHP, Laravel, REST API design, MySQL, SQLite</div>
+        </div>
+        <div class="skill-cell">
+          <div class="k">Front-end & Infra</div>
+          <div class="v">Next.js, JavaScript, GitHub Actions (CI/CD), Google Cloud</div>
+        </div>
+        <div class="skill-cell">
+          <div class="k">ML & Data</div>
+          <div class="v">Python, scikit-learn, pandas, MLflow, experiment tracking pipelines</div>
+        </div>
+        <div class="skill-cell">
+          <div class="k">CS Fundamentals</div>
+          <div class="v">Algorithms & data structures (coursework), OOP, version control (Git/GitHub)</div>
+        </div>
+        <div class="skill-cell">
+          <div class="k">Embedded / IoT</div>
+          <div class="v">ESP32, C++, MQTT, sensor integration, ThingsBoard</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="sec-label reveal">Timeline</p>
+      <h2 class="sec-title reveal">Experience</h2>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-date">Aug 2025 – Jan 2026</div>
+          <div class="tl-body">
+            <h3>Machine Learning Cohort</h3>
+            <div class="org">Asah by Dicoding · Remote</div>
+            <p>Built an end-to-end customer segmentation and churn-prediction system: data pipeline, feature engineering, model training, and evaluation in Python. Shipped a working product, not just a notebook.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2023 – Present</div>
+          <div class="tl-body">
+            <h3>Explore Division Member</h3>
+            <div class="org">Computer Student Club PNJ · IoT Focus</div>
+            <p>Built FAPS — a real-time IoT parking detection system using ESP32 + ultrasonic sensors. Handled hardware integration, firmware, and the live dashboard. Awarded 2nd Best Final Project.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Sep 2023 – Present</div>
+          <div class="tl-body">
+            <h3>D4 Informatics Engineering</h3>
+            <div class="org">Politeknik Negeri Jakarta · GPA 3.89 / 4.00</div>
+            <p>Coursework across mobile, web, data, algorithms, IoT, and software engineering. Shipped real projects each semester with industry partners and teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom:none">
+    <div class="wrap reveal">
+      <div class="contact-box">
+        <h2>Let's build something.</h2>
+        <p>Open to internships where I can work on real problems and ship real code.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:muhtria.har@gmail.com">muhtria.har@gmail.com</a>
+          <a class="btn ghost" href="https://github.com/har-neptune" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn ghost" href="tel:+6281285515526">+62 812 8551 5526</a>
+        </div>
+        <p class="mono-line">Based in Depok, Indonesia · Available remote</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Muhtria Harlika · mh.dev</p>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = Math.min(i * 35, 140) + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
